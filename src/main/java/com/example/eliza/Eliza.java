@@ -47,12 +47,11 @@ public class Eliza {
 	 * Isn't actually anything important to the program, I put it in simply for 
 	 * elegance per say.
 	 * 
-	 * @return Prints out an introduction to the console.
+	 * @return String of its introduction.
 	 */
-	public void introduction()
+	public String introduction()
 	{
-		System.out.println("Hello, my name is " + name + ", I will be your doctor for today.");
-		System.out.println("How may I help you today?");
+		return "Hello, my name is " + name + ", I will be your doctor for today. \n How may I help you today?";
 	}
 	
 	/**
@@ -65,8 +64,9 @@ public class Eliza {
 	 * it does not even get to the second word.
 	 * 
 	 * @param statement The sentence in which we send to the AI
+	 * @return Return a string of the resonse
 	 */
-	public void interpretSentence(String statement)
+	public String interpretSentence(String statement)
 	{
 		int i = 0;
 		boolean responseAvailable = false;
@@ -86,7 +86,7 @@ public class Eliza {
 			responseAvailable = wordBank.hasResponse(wordToAnalyze);
 			}
 		}
-		giveResponse(responseAvailable, i, wordToAnalyze, wordList);
+		return giveResponse(responseAvailable, i, wordToAnalyze, wordList);
 	}
 	
 	/**
@@ -97,8 +97,9 @@ public class Eliza {
 	 * @param responseAvailable whether we have a response in the word bank
 	 * @param index The index at which we found a matching response
 	 * @param wordList The list of words in which we broke up to see if we had a matching word.
+	 * @return returns the chosen response as a String
 	 */
-	private void giveResponse(boolean responseAvailable, int index, String word, String[] wordList)
+	private String giveResponse(boolean responseAvailable, int index, String word, String[] wordList)
 	{
 		if(responseAvailable == true)
 		{
@@ -108,11 +109,11 @@ public class Eliza {
 				String restOfResponse = wordBank.elizaResponse(wordList, index + 1);
 				response = response.replace("*rest*", restOfResponse);
 			}
-				System.out.println(response);
+				return response;
 		}
 		else
 		{
-			System.out.println(wordBank.elizaDefaults());
+			return wordBank.elizaDefaults();
 		}
 	}
 	
