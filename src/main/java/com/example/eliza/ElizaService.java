@@ -1,6 +1,6 @@
 package com.example.eliza;
 
-import java.lang.String;
+import org.springframework.stereotype.Service;
 
 /**
  * Eliza, is a very simple watered down version of the very well known program,
@@ -11,7 +11,9 @@ import java.lang.String;
  * @version 1.0
  * @since 15-06-2015
  */
-public class Eliza {
+
+ @Service
+public class ElizaService {
 	//Objects attributes
 	
 	//I decided to make the responses a whole new object in itself
@@ -24,17 +26,19 @@ public class Eliza {
 	/**
 	 * default constructor with the name defaulted to Eliza
 	 */
-	public Eliza()
+	public ElizaService()
 	{
 		wordBank = new WordBank();
 		name = "Eliza";
 	}
 	/**
-	 * overloaded constructor in case you wish to name the AI
+	 * overloaded constru
+	 * 
+	 * ctor in case you wish to name the AI
 	 * 
 	 * @param aName the name in which the AI will refer to itself
 	 */
-	public Eliza(String aName)
+	public ElizaService(String aName)
 	{
 		wordBank = new WordBank();
 		name = aName;

@@ -18,7 +18,7 @@ public class ElizaTester {
 	 *@param args Not used in the program.
 	 */
 	public static void main(String[] args) {
-		Eliza Eunice = new Eliza();
+		ElizaService Eunice = new ElizaService();
 		Scanner input = new Scanner(System.in);
 		Eunice.introduction();
 		String sentence = "";
