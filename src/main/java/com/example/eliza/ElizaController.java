@@ -1,6 +1,6 @@
 package com.example.eliza;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,10 +14,10 @@ public class ElizaController {
         this.elizaservice = es;
     }
 
-    @GetMapping
-    public String getResponse(@RequestBody String sent)
+    @PostMapping
+    public String getResponse(@RequestBody String userMessage)
     {
-        return this.elizaservice.interpretSentence(sent);
+        return this.elizaservice.interpretSentence(userMessage);
     }
     
 }
