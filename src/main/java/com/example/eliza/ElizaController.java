@@ -17,7 +17,9 @@ public class ElizaController {
     @PostMapping
     public String getResponse(@RequestBody String userMessage)
     {
-        return this.elizaservice.interpretSentence(userMessage);
+        String resp = this.elizaservice.interpretSentence(userMessage);
+        System.out.println(userMessage + " " + resp);
+        return resp;
     }
     
 }
